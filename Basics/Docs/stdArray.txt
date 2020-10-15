@@ -1,0 +1,90 @@
+The following are the differences between vector and array −
+
+1. Vector is a sequential container to store elements and not index based.
+2. Array stores a fixed-size sequential collection of elements of the same type and it is index based.
+3. Vector is dynamic in nature so, size increases with insertion of elements.
+4. As array is fixed size, once initialized can’t be resized.
+5. Vector occupies more memory.
+6. Array is memory efficient data structure.
+7. Vector takes more time in accessing elements.
+8. Array access elements in constant time irrespective of their location as elements are arranged in a contiguous memory allocation.
+
+The declaration of std::array is as follows:
+
+std::array<datatype,array_size> array_name;
+
+Initialization of std::array
+Like arrays, we initialize an std::array by simply assigning it values at the time of declaration. For example, we will initialize an integer type std::array named 'n' of length 5 as shown below;
+
+std::array<int, 5> n = {1, 2, 3, 4, 5};
+
+There is another way of initializing an std::array which is shown below.
+
+std::array<int, 5> n { {1, 2, 3, 4, 5} };
+
+Rules:
+Always pass std::array by reference or const reference.
+to prevent from creating extra copy
+Because std::array doesn’t decay to a pointer when passed to a function, the size() function will work even if you call it from within a function:
+example:
+================================================================================================
+#include <array>
+#include <iostream>
+ 
+void printLength(const std::array<double, 5> &myArray)
+{
+    std::cout << "length: " << myArray.size() << '\n';
+}
+ 
+int main()
+{
+    std::array myArray { 9.0, 7.2, 5.4, 3.6, 1.8 };
+ 
+    printLength(myArray);
+ 
+    return 0;
+}
+=======================================================================================================
+
+You can sort std::array using std::sort, which lives in the <algorithm> header:
+============================================================================================================
+
+#include <algorithm> // for std::sort
+#include <array>
+#include <iostream>
+ 
+int main()
+{
+    std::array myArray { 7, 3, 1, 9, 5 };
+    std::sort(myArray.begin(), myArray.end()); // sort the array forwards
+//  std::sort(myArray.rbegin(), myArray.rend()); // sort the array backwards
+ 
+    for (int element : myArray)
+        std::cout << element << ' ';
+ 
+    std::cout << '\n';
+ 
+    return 0;
+}
+
+==============================================================================================================
+Use extra brackets when trying multidimensional array using std::array as below:
+std::array<std::array<int, 3>, 3> arr = {{{5, 8, 2}, {8, 3, 1}, {5, 3, 9}}};
+
+Unlike built-in fixed arrays, with std::array you can not omit the array length when providing an initializer:
+std::array<int, > myArray { 9, 7, 5, 3, 1 }; // illegal, array length must be provided
+std::array<int> myArray { 9, 7, 5, 3, 1 }; // illegal, array length must be provided
+
+However, since C++17, it is allowed to omit the type and size. They can only be omitted together, but not one or the other, and only if the array is explicitly initialized.
+
+std::array myArray { 9, 7, 5, 3, 1 }; // The type is deduced to std::array<int, 5>
+std::array myArray { 9.7, 7.31 }; // The type is deduced to std::array<double, 2>
+
+std::array<int, 5> myArray;
+myArray = { 0, 1, 2, 3, 4 }; // okay
+myArray = { 9, 8, 7 }; // okay, elements 3 and 4 are set to zero!
+myArray = { 0, 1, 2, 3, 4, 5 }; // not allowed, too many elements in initializer list!
+
+Just like built-in fixed arrays, the subscript operator does not do any bounds-checking. If an invalid index is provided, bad things will probably happen.
+
+The length of an std::array must be known at the time of compilation.
