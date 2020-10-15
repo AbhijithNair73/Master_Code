@@ -1,7 +1,14 @@
 #include<iostream>
+#include<ifstream>
 using namespace std;
+class JSON
+{
+
+}
+
+
 int main()
 {
-	cout<<"Jason Beardo parser is coming"<<endl;
+	
 	return 0;
 }

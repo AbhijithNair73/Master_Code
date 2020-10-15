@@ -4,11 +4,11 @@ class A
 {
     int x;
 public:
-    A(){}
+    A(){cout<<"Default constructor in A"<<endl;}
     A(int b)
     {
         x=b;
-        cout<<"Constructor A"<<endl;
+        cout<<"Parametrized Constructor A"<<endl;
     }
     ~A()
     {
@@ -24,11 +24,11 @@ class B
 {
 int y;
 public:
-    B(){}
+    B(){cout<<"Default Constructor in B"<<endl;}
     B(int c)
     {
         y=c;
-        cout<<"Constructor B"<<endl;
+        cout<<"Parametrized Constructor B"<<endl;
     }
     ~B()
     {
@@ -45,11 +45,13 @@ class C:public A,public B
 {
     int z;
 public:
-    C(){}
+    C(){
+    	cout<<"Default constructor in C"<<endl;
+    }
     C(int a,int b,int c):A(b),B(c)
     {
         z=a;
-        cout<<"Constructor C"<<endl;
+        cout<<"Parametrized Constructor C"<<endl;
     }
     ~C()
     {
