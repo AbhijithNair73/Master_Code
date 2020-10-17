@@ -1,8 +1,14 @@
+//Bubble sort me neighbours ko compare krke swap krte jaana he end tak so 1st iteration of bigger loop me largest element end
+//pe pohanch jayega. So ek element sort ho gya ... wese hi continuous comparison of neighbors krte rehna he
+//It is adaptive and stable
+//stable matlab agar duplicate values hue to unka order preserve hota he after sorting
+//adaptive means if the list is already sorted then it should take minimum time
+
 #include<iostream>
 #include<array>
 using namespace std;
 
-void Bubble(array<int,10> & Ax,int n)
+void Bubble(array<int,5> & Ax,int n)
 {
 	int i,j;
 	bool flag=false;
@@ -20,8 +26,12 @@ void Bubble(array<int,10> & Ax,int n)
 				flag=true;
 			}
 		}
-		if(flag==0)
+
+		if(flag==false)
 			break;
+		for(int k=0;k<5;k++)
+		cout << Ax[k] <<" ";
+		cout<<endl;
  	}
 
 }
@@ -29,11 +39,11 @@ void Bubble(array<int,10> & Ax,int n)
 int main()
 {
 
-	std::array<int,10> A={11,13,7,12,16,9,24,5,10,3};
+	std::array<int,5> A={4,3,2,6,5};
 
 	Bubble(A,A.size());
-
-	for(int i=0;i<10;i++)
+	cout<<"Ultimate Result :"<<endl;
+	for(int i=0;i<5;i++)
 	cout << A[i] <<" ";
 	cout << endl;
 
