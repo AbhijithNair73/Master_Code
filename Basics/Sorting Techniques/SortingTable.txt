@@ -1,0 +1,15 @@
+Algo      Time:Best    		Time:Average    Time:Worst 		Space:Worst
+
+Bubble 	   O(n)				  O(n2)				O(n2)				O(1)
+Insertion  O(n)				  O(n2)				O(n2)				O(1)
+Selection  O(n2)			  O(n2)				O(n2)				O(1)
+
+
+Quick 	   O(n log(n))		  O(n log(n))		O(n2)				O(n)
+Merge 	   O(n log(n))		  O(n log(n))		O(n log(n))			O(n)
+Heap 	   O(n log(n))		  O(n log(n))		O(n log(n))			O(1)
+
+
+
+Smooth 	   O(n)				  O(n log(n))		O(n log(n))			O(1)
+Bogo 	   O(n)				  O(n n!)			O(∞)				O(1)

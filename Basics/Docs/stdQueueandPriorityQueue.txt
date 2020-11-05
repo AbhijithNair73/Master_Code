@@ -1,0 +1,127 @@
+Queues are a type of container adaptor, specifically designed to operate in a FIFO context (first-in first-out), where elements are inserted into one end of the container and extracted from the other.
+
+
+Elements are pushed into the "back" of the specific container and popped from its "front"
+
+front			access the first element
+ 
+back			access the last element
+ 
+empty			checks whether the underlying container is empty
+
+size			returns the number of elements
+ 
+push			inserts element at the end
+
+pop				removes the first element
+ 
+emplace			constructs element in-place at the end
+
+swap			swaps the contents (Exchange the contents of two queues but the queues must be of same type, although 
+				sizes may differ) (ex: swap(queue1, queue2))
+
+
+Can also be initialized with list or deque check below link for details:
+https://iq.opengenus.org/different-ways-to-initialize-queue-cpp/
+For copy initializing queue, there should be deque or list already present as shown in below example
+
+During declaration, the base container of the queue can also be explicitly mentioned: template<class T,class Container> identifier
+
+Generally, a queue implements deque as its default base container.
+
+queue<int , deque<int> > q1;
+
+However, one can easily change the base container by simply mentioning the name of the desired base container in the declaration of the queue. Just like this:
+
+queue<int , list<int> >q2;
+
+The above mentioned two examples create an empty queue with deque and list as the base container, respectively.
+
+Dequeue:
+#include <iostream>
+#include <queue>
+#include <deque>
+using namespace std;   
+int main(){
+    deque<int> dq ;
+    for(int i=1;i<=5;i++)
+        dq.push_back(i);      //inserting 5 elements in the deque
+    queue<int> q(dq); 
+
+List:
+#include <iostream>
+#include <list>
+#include <queue>
+using namespace std;
+int main()
+{
+    list<int> lt(5,10); // initializing a list with 5 elements
+    queue<int,list<int> > q(lt);   // q is initialized to the values of the list
+    while(!q.empty())
+    {
+        cout<<q.front()<<" ";
+        q.pop();
+    }
+    return 0;
+}
+
+o/p: 10 10 10 10 10
+
+====================================================================================================================
+											Priority Queue
+====================================================================================================================
+
+Priority queues are a type of container adaptors, specifically designed such that its first element is always the greatest of the elements it contains, according to some strict weak ordering criterion.
+
+This context is similar to a heap, where elements can be inserted at any moment, and only the max heap element can be retrieved (the one at the top in the priority queue).
+A priority queue is a special type of queue in which each element is associated with a priority and is served according to its priority, value of element itself is considered for priority.If elements with the same priority occur, they are served according to their order in the queue .Elements can be inserted in any order in queue but only the greatest element can be retrieved from queue in constant time O(1).In context priority queue is similar to max heap , although we can also create the priority queue such that top element of the priority queue always hold the smallest element of the queue in that way it will resemble min heap.The time complexity for inserting and deleting element from priority queue is O(log(n)) , for searching it is O(n) and for retrieving greatest element it is O(1) . We will look at both of these priority queues and how to initialize and use them
+
+In priority queue based on max heap - top of the queue always stores the maximum element , syntax for creating priority queue based on max heap is shown below:
+
+#include <iostream>
+#include<queue>
+// remember to include queue to use priority queue
+
+using namespace std;
+
+int main()
+{
+  priority_queue <int> pq;
+  // syntax for creating a priority queue based on max heap
+
+      pq.push(10); 
+      pq.push(30); 
+      pq.push(20); 
+      pq.push(5); 
+      pq.push(1);
+
+  cout<<"The priority queue based on max heap is\n" ;
+
+
+
+      while (!pq.empty()) 
+      { 
+        cout<< pq.top()<<endl; 
+        pq.pop(); 
+      }
+
+       return 0;
+}
+
+O/p: 30 20 10 5 1
+
+In priority queue based on min heap top of the queue always stores the minimum element
+
+ priority_queue <int,vector<int>,greater<int>> pq ;
+
+Priority Queue can also be initialized with vector and array:
+
+int main()
+{
+
+  vector<int> vec( { 15 , 25 , 35 } ) ;
+
+  int arr[3] = { 12 , 16 , 18 } ;
+
+  priority_queue <int> pq( vec.begin() , vec.end() );
+  priority_queue <int> pq2( arr , arr+3 ) ;
