@@ -1,0 +1,183 @@
+--------------------------------------------------------------------------------------------------------
+										std::pair
+--------------------------------------------------------------------------------------------------------
+std::pair is a class template that provides a way to store two heterogeneous objects as a single unit. A pair is a specific case of a std::tuple with two elements.
+
+The first element is referenced as ‘first’ and the second element as ‘second’ and the order is fixed (first, second).
+
+To access the elements, we use variable name followed by dot operator followed by the keyword first or second.
+pair<int, char> PAIR1;
+ 
+    PAIR1.first = 100;
+    PAIR1.second = 'G';
+
+-----------------------------------
+ Initialization Syntax:
+-----------------------------------
+
+pair (data_type1, data_type2) Pair_name (value1, value2) ;
+
+---------------------------------------
+Different ways to initialize pair: 
+----------------------------------------
+
+pair  g1;         //default
+pair  g2(1, 'a');  //initialized,  different data type
+pair  g3(1, 10);   //initialized,  same data type
+pair  g4(g3);    //copy of g3
+
+pair g5 =  make_pair(1, 'a');
+
+Note: If not initialized, the first value of the pair gets automatically initialized. 
+
+=====================================================================================================
+								member functions
+=====================================================================================================
+
+make_pair() : This template function allows to create a value pair without writing the types explicitly.
+
+operators(=, ==, !=, >=, <=) : We can use operators with pairs as well.
+
+using equal(=) : It assigns new object for a pair object. 
+
+Comparison (==) operator with pair : For given two pairs say pair1 and pair2, the comparison operator compares the first value and second value of those two pairs i.e. if pair1.first is equal to pair2.first or not AND if pair1.second is equal to pair2.second or not .
+
+Not equal (!=) operator with pair : For given two pairs say pair1 and pair2, the != operator compares the first values of those two pairs i.e. if pair1.first is equal to pair2.first or not, if they are equal then it checks the second values of both.
+
+
+Logical( >=, <= )operators with pair : For given two pairs say pair1 and pair2, the =, >, can be used with pairs as well. It returns 0 or 1 by only comparing the first value of the pair.
+For pairs like p1=(1,20) and p2=(1,10) 
+p2<p1 should give 0 (as it compares 1st element only & they are equal so its definitely not less), but that isn’t true. Here the pair compares the second element and if it satisfies then returns 1 
+(this is only the case when the first element gets equal while using a relational operator > or < only, otherwise these operators work as mentioned above)
+
+tie() : This function works the same as in tuples. It creates a tuple of lvalue references to its arguments i.e., to unpack the tuple (or here pair) values into separate variables. Just like in tuples, here are also two variants of tie, with and without “ignore”. “ignore” keyword ignores a particular tuple element from getting unpacked.
+
+--------------------------------------------
+example:(tie)
+-------------------------------------------
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    pair<int, int> pair1 = { 1, 2 };
+    int a, b;
+    tie(a, b) = pair1;
+    cout << a << " " << b << "\n";
+ 
+    pair<int, int> pair2 = { 3, 4 };
+    tie(a, ignore) = pair2;
+   
+    // prints old value of b
+    cout << a << " " << b << "\n"; 
+ 
+    // Illustrating pair of pairs
+    pair<int, pair<int, char> > pair3
+                  = { 3, { 4, 'a' } };
+    int x, y;
+    char z;
+     
+    // tie(x,y,z) = pair3; Gives compilation error
+    // tie(x, tie(y,z)) = pair3; Gives compilation error
+    // Each pair needs to be explicitly handled
+    x = pair3.first;
+    tie(y, z) = pair3.second;
+    cout << x << " " << y << " " << z << "\n";    
+    
+}
+ 
+
+------------------------------------------------------------------------------------------------------
+								Difference between pair and map
+
+------------------------------------------------------------------------------------------------------
+
+		pair<int,int> p[5] 
+
+1. Here, p is defined as an array of pairs which stores integer pairs (like points in a 2D plane).
+2. The pairs are not sorted, they are stored in the order you put it in.
+3. It allows duplicates.
+4. Search is  O(N) . We can sort it accordingly to improve the search.
+5. Element access is  O(1) .
+		
+		map< int,int > m 
+		map <key,value>
+
+1. Here, our defined map ‘m’ contains key-value pairs with unique keys. It works like a Hash Table (not exactly) where each key is uniquely associated with a value.
+2. Because of the design, it doesn’t allow ‘key’ duplicates.
+3. Elements are sorted on the basis of key values.
+4. Search is  O(logn) 
+5. Element access is also  O(logn) 
+6. The reason for logarithmic complexity is because maps are usually implemented as red-black trees.
+
+
+----------------------------------------------------------------------------------------------------
+
+		How can I use multiple values with one key in a C++ STL map?
+-----------------------------------------------------------------------------------------------------
+
+
+Make a map of < int, vector<> >
+
+map<int, vector<int>> mymap; 
+vector<int> v; 
+v.push_back(value1); 
+v.push_back(value2); 
+mymap[key]= v; 
+
+
+For fetching:
+
+if(mymap.find(key) != mymap.end() )
+{ 
+  vector<int> tmp=mymap[key]; 
+} 
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+										std::tuple
+--------------------------------------------------------------------------------------------------------
+tuple and pair are very similar in their structure. Just like in pair we can pair two heterogeneous object, in tuple we can pair three heterogeneous objects.
+
+
+
+syntax:
+-------------------------------
+tuple<T1, T2, T3> tuple1;
+
+
+
+------------------------------------------------------------------------------------------------------
+Example:
+------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+        
+int main ()
+{
+   tuple<int, int, int> tuple1;   //creates tuple of integers
+   tuple<int, string, string> tuple2;    // creates pair of an integer an 2 string
+    
+   tuple1 = make_tuple(1,2,3);  // insert 1, 2 and 3 to the tuple1
+   tuple2 = make_pair(1,"Studytonight", "Loves You");
+   /* insert 1, "Studytonight" and "Loves You" in tuple2  */
+
+   int id;
+   string first_name, last_name;
+
+   tie(id,first_name,last_name) = tuple2;
+   /* ties id, first_name, last_name to 
+   first, second and third element of tuple2 */
+
+   cout << id <<" "<< first_name <<" "<< last_name;
+   /* prints 1 Studytonight Loves You  */
+
+   return 0;
+}
+
+-----------------------------------------------------------------------------------------------------
