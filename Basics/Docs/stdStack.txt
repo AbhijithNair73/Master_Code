@@ -1,0 +1,32 @@
+What is std::stack?
+A stack is a data structure that operates based on LIFO (Last In First Out) technique. The std::stack allows elements to be added and removed from one end only.
+
+The std::stack class is a container adapter. Container objects hold data of a similar data type. You can create a stack from various sequence containers. If no container is provided, the deque containe will be used by default. 
+
+Container adapters don't support iterators, so it can't be used to manipulate data.
+
+we must include the <stack> header file in our code
+
+Syntax:
+stack<T> st; 
+
+
+
+push – It adds/pushes an item into the stack.
+	ex: stack.push(value)
+
+pop – It removes/pops an item from the stack.
+    ex: stack.pop()
+
+top – Returns the top item of the stack without removing it.
+
+emplace()- constructs then inserts new element to top of stack.
+	ex: st1.emplace(19);
+
+swap()- exchanges stack contents with another stack's contents.
+	ex: st1.swap(st2);
+
+isFull – Checks whether a stack is full.
+isEmpty – Checks whether a stack is empty.
+empty()- checks whether a stack is empty or not.
+size()- returns the size of stack, that is, number of elements in a stack.

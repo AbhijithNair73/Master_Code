@@ -59,18 +59,19 @@ return false;
 }
 struct User 
 {
-    long double latitude;
+    double latitude;
     int user_id;
     std::string name;
-    long double longitude;
+    double longitude;
 
     void read(ptree const& node) 
     {
     	std::string::size_type sz;
-       latitude = stold(node.get_child("latitude").get_value<std::string>(),&sz);
-       user_id = stoi(node.get_child("user_id").get_value<std::string>(),&sz);
+    	const char * defdouble = "0.0000";
+       latitude = node.get_child("latitude").get_value<double>();
+       user_id = node.get_child("user_id").get_value<std::int>();
        name = node.get_child("name").get_value<std::string>();
-       longitude = stold(node.get_child("longitude").get_value<std::string>(),&sz);
+       longitude = node.get_child("longitude").get_value<double>();
        return;
     };
 

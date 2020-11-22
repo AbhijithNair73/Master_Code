@@ -1,4 +1,3 @@
-[
 {"latitude": "12.986375", "user_id": 12, "name": "Chris", "longitude": "77.043701"},
 {"latitude": "11.92893", "user_id": 1, "name": "Alice", "longitude": "78.27699"},
 {"latitude": "11.8856167", "user_id": 2, "name": "Ian", "longitude": "78.4240911"},
@@ -31,4 +30,3 @@
 {"latitude": "13.761389", "user_id": 30, "name": "Nick", "longitude": "76.2875"},
 {"latitude": "14.080556", "user_id": 23, "name": "Eoin", "longitude": "77.361944"},
 {"latitude": "12.833502", "user_id": 25, "name": "David", "longitude": "78.122366"}
-]
