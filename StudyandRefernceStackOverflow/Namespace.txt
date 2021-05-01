@@ -1,0 +1,3 @@
+Ref: https://docs.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-160#:~:text=A%20namespace%20is%20a%20declarative,code%20base%20includes%20multiple%20libraries.
+
+Ref: https://www.edureka.co/blog/namespace-in-cpp/#using-2
