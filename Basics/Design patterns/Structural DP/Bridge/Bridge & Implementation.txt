@@ -1,0 +1,64 @@
+pimpl Idiom
+
+pimpl idiom means an implementation class.
+Idea behind impl class is to keep the actuall processing hidden and only exposing the function in regular class.
+normal class will be in header file, while impl class will be in the src file to keep it hidden
+In normal class there will be a function with same name as in impl class and the function in normal class will just call the function of impl class using the impl pointer which will be the data member of regular class.
+
+
+Bridge pattern 
+works as a bridge between to classes.
+Same like above implclass, we would have rendererclass and shapeclass.
+so to make bridge between both we will have a reference of render type in shape class as a data memeber and at the constructor initialization respective render subtype will be passed.
+
+thus it makes connection between different render types and shapes.
+
+
+Bridge pattern vs adapter pattern
+
+what is the difference?
+Adapter makes things work after they're designed; Bridge makes them work before they are.
+Bridge is designed up-front to let the abstraction and the implementation vary independently. Adapter is retrofitted to make unrelated classes work together.
+
+
+Bridge is improved Adapter. Bridge includes adapter and adds additional flexibility to it. Here is how elements from Ravindra's answer map between patterns:
+
+      Adapter  |    Bridge
+    -----------|---------------
+    Target     | Abstraction
+    -----------|---------------
+               | RefinedAbstraction
+               |
+               |   This element is Bridge specific. If there is a group of 
+               |   implementations that share the same logic, the logic can be placed here.
+               |   For example, all cars split into two large groups: manual and auto. 
+               |   So, there will be two RefinedAbstraction classes.
+    -----------|--------------- 
+    Adapter    | Implementor
+    -----------|---------------
+    Adaptee    | ConcreteImplementor
+
+
+  Adapter versus Bridge
+
+The Adapter and Bridge patterns have some common attributes. Both promote flexibility by providing a level of indirection to another object. Both involve forwarding requests to this object from an interface other than its own.
+
+The key difference between these patterns lies in their intents. Adapter focuses on resolving incompatibilities between two existing interfaces. It doesn't focus on how those interfaces are implemented, nor does it consider how they might evolve independently. It's a way of making two independently designed classes work together without reimplementing one or the other. Bridge, on the other hand, bridges an abstraction and its (potentially numerous) implementations. It provides a stable interface to clients even as it lets you vary the classes that implement it. It also accommodates new implementations as the system evolves.
+
+As a result of these differences, Adapter and Bridge are often used at different points in the software lifecycle. An adapter often becomes necessary when you discover that two incompatible classes should work together, generally to avoid replicating code. The coupling is unforeseen. In contrast, the user of a bridge understands up-front that an abstraction must have several implementations, and both may evolve independently. The Adapter pattern makes things work after they're designed; Bridge makes them work before they are. That doesn't mean Adapter is somehow inferior to Bridge; each pattern merely addresses a different problem.
+
+Adapter is used when you have an abstract interface, and you want to map that interface to another object which has similar functional role, but a different interface.
+
+Bridge is very similar to Adapter, but we call it Bridge when you define both the abstract interface and the underlying implementation. I.e. you're not adapting to some legacy or third-party code, you're the designer of all the code but you need to be able to swap out different implementations.
+
+
+
+"Adapter makes things work after they're designed; Bridge makes them work before they are. [GoF, p219]"
+
+Effectively, the Adapter pattern is useful when you have existing code, be it third party, or in-house, but out of your control, or otherwise not changeable to quite meet the interface you need it to
+
+The Bridge pattern is something you implement up front - if you know you have two orthogonal hierarchies, it provides a way to decouple the interface and the implementation in such a way that you don't get an insane number of classes. Let's say you have:
+
+MemoryMappedFile and DirectReadFile types of file objects. Let's say you want to be able to read files from various sources (Maybe Linux vs. Windows implementations, etc.). Bridge helps you avoid winding up with:
+
+MemoryMappedWindowsFile MemoryMappedLinuxFile DirectReadWindowsFile DirectReadLinuxFile

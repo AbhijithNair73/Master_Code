@@ -1,0 +1,14 @@
+Monostate singleton: member variable static hoga. So even if you create many instances but the data member is static, so it is kind of singleton.
+But it is considered very bad bcoz of inheriting the static data member will not be possible.
+
+Singleton get_instance can be of two type:
+1. Static object => which will be created only once and returned for the entire life of program.
+2. Using pointers.
+
+In Singleton make the default constructor private.
+delete or make private copy and assignment operator.
+
+So when using 1. static object type singleton pattern, we cannot assign get_instance() into any variable like below.
+Singleton variable = Singleton::get_instance()   //error assignment operator private.
+
+So for such case we can use pointer implementation.

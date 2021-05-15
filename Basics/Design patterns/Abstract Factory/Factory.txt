@@ -1,0 +1,17 @@
+object creation at run time and done by some separate function or a class(factories).(single step object creation)
+heirarchies of such factory classes(Abstract factory)
+
+Inner factory means : factoryclass will be inside the actual class so it can access the private members of the actual class(constructor(if private)).
+This was done to avoid breaking Openclose principle with making the factory class as a friend class in the actual class.
+
+
+A factory is basically object creation:
+	1. using some method or static function then its Factory method.
+	2. If by some class then factory
+		a. Internal (Nested class ) access to private members
+		b. Abstract external class
+	3. Heirarhcies of factories can be used for object creation.
+
+
+In builder you create object in many steps, several different calls etc.(piece wise object creation)
+

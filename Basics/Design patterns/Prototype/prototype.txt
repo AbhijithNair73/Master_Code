@@ -1,0 +1,2 @@
+Prototype DP is all about object copying.
+API for copying => should do deep copy, which means changing the existing object should not affect other.

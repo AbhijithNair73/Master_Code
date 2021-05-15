@@ -1,0 +1,27 @@
+Adapter pattern is 
+Convert the interfac e of a class into another interface clients expect. Adapter lets
+classes work together that couldn' t otherwise because of incompatible interfaces
+
+Structure
+A class adapter uses multiple inheritance to adapt one interface to another:
+An object adapter relies on object composition:
+Participants
+• Target (Shape)
+- defines th domain-specific interface that Client uses.
+• Client (DrawingEditor)
+- collaborates with objects conforming to the Target interface.
+• Adaptee (TextView)
+- defines a enxisting interface that needs adapting.
+• Adapter (TextShape)
+- adapts the interface of Adaptee to the Target interface.
+
+
+UML:
+ Client (DrawingEditor) ---> Target (Shape)---   --- Adaptee (TextView)
+ 											 |   |
+ 											 |   |
+ 									Adapter (TextShape)
+ 									           |   
+ 											   |  
+Clients call operations on an Adapter instance. In turn, the adapter calls
+Adaptee operations that carry out the specific request (only present in adaptee).

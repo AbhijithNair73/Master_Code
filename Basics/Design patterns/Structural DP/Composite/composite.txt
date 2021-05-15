@@ -1,0 +1,102 @@
+Composite lets clients treat individual objects and compositions of objects uniformly.
+
+to treat the group of objects in the same manner as a single object.
+
+Use the Composite pattern when
+    you want to represent part-whole hierarchies of objects.
+    you want clients to be able to ignore the difference between compositions of objects and individual objects. Clients will treat all objects in the composite structure uniformly.
+
+Composite Pattern lets clients to treat individual Objects as well compositions (of Individual Objects) uniformly.
+For instance on double click of folder it should be open the folder. On double of file it should be opened in corresponding Program.
+Operation is same but behaves based on whether it is Individual Objects or Compositions
+
+
+Common Interface for individual Objects and Composite Objects
+
+interface Data{
+    public void doubleClick();
+}
+
+Individual Object Implementation
+
+class File implements Data {
+    private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void doubleClick() {
+        System.out.println(this.getName()+" file is Opened in a Program ");
+    }
+}
+
+Composite Implementation
+
+class Folder implements Data {
+    private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private List<Data> folder = new ArrayList<Data>();
+
+    @Override
+    public void doubleClick() {
+        System.out.println(this.getName() + " folder is Opened");
+        for(Data data : folder) {
+            data.doubleClick();
+        }
+    }
+
+    public void add(Data data) {
+        folder.add(data);
+    }
+
+    public void remove(Data data) {
+        folder.remove(data);
+    }
+}
+
+Client Program
+
+public class CompositePattern {
+
+    public static void main(String[] args) {
+
+        Folder f1 = new Folder();f1.setName("Folder 1");
+        Folder f2 = new Folder();f2.setName("Folder 2");
+        Folder f3 = new Folder();f3.setName("Folder 3");
+
+        File file1 = new File();file1.setName("File 1");
+        File file2 = new File();file2.setName("File 2");
+        File file3 = new File();file3.setName("File 3");
+        File file4 = new File();file4.setName("File 4");
+
+        f1.add(file1);
+        f2.add(file2);
+
+        f3.add(f2);
+        f3.add(file3);
+        f3.add(file4);
+
+        f1.doubleClick();f2.doubleClick();f3.doubleClick();
+
+    }
+
+}
+
+https://www.bogotobogo.com/DesignPatterns/composite.php
+The Composite pattern allows us to build structures of objects in the form of trees that contain both composition of objects and individual objects as nodes.
+Using a composite structure, we can apply the same operations over both composites and individual object. In other words, in most cases we can ignore the differences between composition of objects and individual objects
+
+
+When should I use the Composite Design Pattern?
+
+-- You want clients to be able to ignore the difference between the group of objects and individual objects.
+-- When you find that you are using multiple objects in the same way, and looping over to perform a somewhat similar action, then composite is a good choice
