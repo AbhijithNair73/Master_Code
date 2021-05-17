@@ -1,0 +1,9 @@
+Facade is a structural design pattern that provides a simplified (but limited) interface to a complex system of classes, library or framework.
+
+Identification: Facade can be recognized in a class that has a simple interface, but delegates most of the work to other classes. Usually, facades manage the full life cycle of objects they use.
+
+All complex things will be in master classes. Facade class will have objects/pointers of master class and a generic API, where all the complex functions of those master classes will be called as per the requirement.
+The client will just be be exposed with a single API of facade class, which will perform all complex tasks.
+
+
+Façade pattern is different from adapter pattern because façade simplifies a class structure while adapter keeps the same class structure.

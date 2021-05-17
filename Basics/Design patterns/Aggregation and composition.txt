@@ -1,0 +1,12 @@
+
+
+Aggregation
+call by reference
+where value is passed by reference, so when this class dies, other class may or may not die based on the implementation
+Hence a class where one dies other may or may not die such relation is called aggregation
+
+
+Composition
+composition mein doosre class ka object isme hi hota he.
+So when this class object dies that class also dies.
+That kind of relation where one class dies other also dies is also called compostion
