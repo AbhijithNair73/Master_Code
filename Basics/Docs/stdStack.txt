@@ -15,7 +15,7 @@ stack<T> st;
 push – It adds/pushes an item into the stack.
 	ex: stack.push(value)
 
-pop – It removes/pops an item from the stack.
+pop – It removes/pops an item from the top of the stack. The pop() method does not return anything.
     ex: stack.pop()
 
 top – Returns the top item of the stack without removing it.

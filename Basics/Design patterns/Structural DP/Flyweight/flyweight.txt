@@ -1,0 +1,3 @@
+Flyweight is a space optimisation technique, by storing common data externally, without repeating them.
+ The Flyweight pattern has a single purpose: minimizing memory intake. If your program doesn’t struggle with a shortage of RAM, then you might just ignore this pattern for a while.
+ Flyweight can be recognized by a creation method that returns cached objects instead of creating new

@@ -14,7 +14,8 @@ public:
     }
 };
  
-class derived : public base {
+class derived : public base
+{
 public:
     void print()
     {

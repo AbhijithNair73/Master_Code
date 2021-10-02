@@ -49,6 +49,7 @@ public:
 			return fail;
 
 	}
+
 	bool empty(void)
 	{
 		if(siize>0)
@@ -56,10 +57,12 @@ public:
 		else
 			return true;
 	}
+
 	int size(void)
 	{
 		return siize;
 	}
+
 	void display() 
 	{
 		int top = siize;
@@ -73,6 +76,7 @@ public:
   		 else
    		cout<<"Stack is empty"<<endl;
 	}
+
 	//void swap(void);
 	//void emplace(T a);
 };
@@ -89,49 +93,54 @@ int main()
     cout<<"5) Empty"<<endl;
     cout<<"6) size"<<endl;
     cout<<"7) Exit"<<endl;
-
-
     do 
     {
       cout<<"Enter choice: "<<endl;
       cin>>ch;
-      switch(ch) {
-         case 1: {
+      switch(ch) 
+      {
+         case 1: 
+         {
             cout<<"Enter value to be pushed:"<<endl;
             cin>>val;
             st.push(val);
             break;
          }
-         case 2: {
+         case 2: 
+         {
             st.pop();
             break;
          }
-         case 3: {
+         case 3: 
+         {
             st.display();
             break;
          }
-         case 4: {
+         case 4: 
+         {
             cout<<"Top Element :"<<st.top()<<endl;;
             break;
          }
-         case 5: {
+         case 5: 
+         {
             cout<<"Empty :"<<st.empty()<<endl;
             break;
          }
-         case 6: {
+         case 6: 
+         {
             cout<<"Size :"<<st.size()<<endl;
             break;
          }
-         case 7: {
+         case 7: 
+         {
             cout<<"Exit"<<endl;
             break;
          }
-         default: {
+         default: 
+         {
             cout<<"Invalid Choice"<<endl;
          }
       }
    }while(ch!=7);
-
-
 	return 0;
 }

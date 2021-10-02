@@ -2,6 +2,7 @@
 using namespace std;
 
 // very bad designed
+// impl class wale normal me hone chahiye the... vice versa ho gya... 
 
 class implThreadScheduler
 {

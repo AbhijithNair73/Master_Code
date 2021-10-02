@@ -1,1 +1,12 @@
 Decorator
+It is also known as a Wrapper.
+
+Decorator is a structural pattern that allows adding new behaviors to objects dynamically by placing them inside special wrapper objects.
+
+Identification: Decorator can be recognized by creation methods or constructor that accept objects of the same class or interface as a current class.
+
+Intent
+Attach additional responsibilities to an object dynamically.
+Decorators provide flexible alternatives to subclassing for extending functionality.
+
+https://sourcemaking.com/design_patterns/decorator/cpp/1
