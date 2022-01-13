@@ -1,0 +1,37 @@
+https://codeforwin.org/2018/05/10-cool-bitwise-operator-hacks-and-tricks.html
+Right shift (>>) operator is equivalent to division by 2
+
+Want to divide a number by 2 quicky. Here you go, use bitwise right shift operator to divide an integer by 2. Each right shift operation reduces the number (operand) to its half.
+
+Left shift (<<) operator is equivalent to multiplication by 2
+
+Similar to division, you can use bitwise left shift operator to quickly multiply a number by the power of 2. Each left shift makes doubles the number (operand).
+
+
+1.XOR can be used to the check the parity in an array.Property :- XOR of the element with itself is 0.
+
+2. If there exist 3 elements a,b,c then a^b=c ,b^c=a and c^a=b.
+
+3.XOR of the element with 0 will the element itself.
+
+4.If you take xor of any number with 1 then you will get the complement of the number
+
+
+
+https://stackoverflow.com/questions/41963898/xor-operation-intuition
+
+
+    A ^ 0 == A
+
+    A ^ A == 0
+
+    A ^ B == B ^ A
+
+    (A ^ B) ^ C == A ^ (B ^ C)
+
+(3) and (4) together mean that the order in which numbers are xored doesn't matter.
+
+Which means that, for example, A^B^X^C^B^A^C is equal to A^A ^ B^B ^ C^C ^ X.
+
+Because of the (2) that is equal to 0^0^0^X.
+

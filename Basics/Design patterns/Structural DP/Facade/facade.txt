@@ -7,3 +7,5 @@ The client will just be be exposed with a single API of facade class, which will
 
 
 Façade pattern is different from adapter pattern because façade simplifies a class structure while adapter keeps the same class structure.
+Also adapter tries to mix two different type of class and form an intermediate third type class.
+While Facade is just a wrapper and simplified form of a complex master class.
