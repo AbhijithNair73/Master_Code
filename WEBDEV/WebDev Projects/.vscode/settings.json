@@ -1,0 +1,6 @@
+{
+    "codemetrics.basics.CodeLensEnabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "editor.codeLens": false
+}

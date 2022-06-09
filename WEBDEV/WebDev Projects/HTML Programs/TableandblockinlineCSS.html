@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with CSS</title>
+    <style>
+        span {
+            border: 2px solid blue;
+        }
+
+        div,
+        footer {
+            border: 3px solid rgb(3, 240, 23);
+        }
+
+        /* To add border for table*/
+        table {
+            width: 100%;
+            border: 3px solid rgb(243, 38, 72);
+            border-color: rgb(0, 0, 0);
+            border-collapse: collapse;
+            
+            /* no effect of padding/marigin and text align here when border-collapse set*/
+            text-align: left;
+            padding: 1100px;
+            padding-top: 110px;
+            padding-bottom: 140px;
+            padding-left: 130px;
+            padding-right: 130px; 
+            border-spacing: 200px;
+            
+        }
+
+/* th and td border should be added to see the box kind layout */
+        th{
+            border: 2px solid rgb(255, 8, 0);
+            background-color: turquoise;
+            /* border-collapse: collapse; */
+            border-spacing: 200px;
+        }
+/* when hover is given bgcolor of th/td/tr will take only when hover applied, try what will be the default(i.e when cursor is not on the cell/row/column)     */
+        td:hover{
+            border: 2px solid rgb(113, 91, 240);
+            background-color: rgb(235, 224, 174);
+            /* border-collapse: collapse; */
+            text-align: center;
+            /* border-spacing: 5px; */
+        }
+        
+        /* below tr border has no effect */
+        tr {
+            border: 2px solid rgb(211, 5, 252);
+            background-color: rgb(35, 212, 124);
+            /* this align is applied for all items but indvidual settings like in td will override this setting hence only applied to th in this case */
+            text-align: right;
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>This html <span>is a span</span> is for CSS</p>
+    <table>
+        <caption>Employee record</caption>
+        <thead>
+            <tr >
+                <th>Name</th>
+                <th>Employee ID</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Abhi</td>
+                <td>618744</td>
+                <td>Software Developer</td>
+                <!-- <td> Invalid Data</td> -->
+            </tr>
+            <tr>
+                <td>Darshan</td>
+                <td>619844</td>
+                <td>Automation Engineer</td>
+                <!-- <td> Invalid Data</td> -->
+            </tr>
+            <tr>
+                <td>Saif</td>
+                <td>618804</td>
+                <td>Software Development</td>
+                <!-- <td> Invalid Data</td> -->
+            </tr>
+            <tr> <!--Checking rowspan here-->
+                <th rowspan="2">Phone</th>
+                <td>555-1234</td>
+                <td>Office</td> <!--just to fill data-->
+            </tr>
+            <tr>
+                <td>555-8745</td>
+                <td>Home</td> <!--just to fill data-->
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;"><strong>colspan data</strong> </td><!--inline css and strong to bold instead of th (not good practice)-->
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>This is a footer</footer>
+</body>
+
+</html>

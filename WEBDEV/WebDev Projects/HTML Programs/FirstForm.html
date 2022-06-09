@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="icon" href="https://media.istockphoto.com/photos/lots-of-multicoloured-cubes-moving-in-space-to-come-together-to-form-picture-id1312818032">
+</head>
+
+<body>
+    <form autocomplete="on" novalidate>
+        <fieldset name="former">
+            <legend>Personal Details</legend>
+            <!-- fieldset se outer box ban jaata he and group hota he form elements -->
+            <!-- Legends se unko caption milta he -->
+            <div>
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="FirstName">
+            </div>
+            <br>
+            <div>
+                <label for="middlename">Middle Name</label>
+                <input type="text" id="middlename" name="MiddleName">
+            </div>
+            <br>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="LastName">
+            </div>
+            <br>
+            <div>
+                <label for="Gender">Gender : </label>
+                Male <input type="radio" id="Gender" name="SelectedGender" value="Male">
+                Female <input type="radio" id="Gender" name="SelectedGender" value="Female">
+                Other <input type="radio" id="Gender" name="SelectedGender" value="Other">
+            </div>
+            <br>
+            <div>
+                <label for="Email">Email</label>
+                <input type="email" id="Email" name="selectedEmail" placeholder="abc@example.com">
+            </div>
+            <br>
+            <div>
+                <label for="Mobile">Mobile No:</label>
+                <input type="number" id="Mobile" name="ContactNumber" placeholder="+91 1234567890">
+            </div>
+            <br>
+            <div>
+                <label for="DOB">Date of Birth:</label>
+                <input type="date" id="DOB" name="DateofBirth">
+            </div>
+            <br>
+            <div>
+                <label for="Education">Education:</label>
+                <select id="Education" name="Degree">
+                    <option value="B.E">B.E</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="Bsc">Bsc</option>
+                    <option value="Bcom">Bcom</option>
+                    <option value="BA">B.A</option>
+                    <option value="Bpharm">Bpharm</option>
+                    <option value="B.B.A">B.B.A</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="Description"> Describe you issue </label><br>
+                <textarea id="Description" rows="10" cols="40"
+                    name="issueDetails" placeholder="Minimum 10 words describing your issue"></textarea>
+            </div>
+            <br>
+            <input type="submit" > <input type="reset" ></nbsp>
+        </fieldset>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+.navclass {
+    background-color: #2b1e80f2;
+}
+
+.navclass ul {
+    overflow: auto;
+}
+
+.navclass li {
+    float: left;
+    margin: 16px 12px;
+}
+
+.navclass li a {
+    padding: 0px 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.navclass li a:hover {
+    color: red;
+
+}
+
+.searchcls {
+    float: right;
+}
+
+.navclass input {
+    margin-top: 10px;
+    margin-right: 120px;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 200px;
+    height: 25px;
+}
