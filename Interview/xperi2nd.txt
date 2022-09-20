@@ -1,0 +1,96 @@
+
+ int a; //1000
+ struct Body
+ {
+	int s;
+	char d;
+	int x;
+ } //4,1(4),4 -> 12
+ struct Body obj; //2000
+ struct Body * ptr;
+ ptr = &obj;
+ printf("address of a = %p, %p",&a,++(&a)); // 1000 - 1004
+ printf("ptr = %p %p",ptr,++ptr); // 2000, 2012
+ ptr = ptr + 1;
+ 
+ 
+ char arr[] = swap words of a sentence ->
+ 1. iterate char by char then find space.' '
+ 
+ swapWords(char )
+{
+}
+ 
+ 2. 
+ {
+ 		int startidx = 0;
+		int lastidx = 0;
+	for(int i =0; i<size; i++)
+	{
+		if(arr[i] == ' ')
+		{
+			lastidx = i-1;
+			swapWords(arr,start,end);
+			startidx = i+1;
+		}
+		
+	}
+ 
+ }
+ 
+ t1, t2 -> "t1" "t2"
+ 
+ 
+ std::mutex mtx;
+ sem1 = 1;
+ sem2 =0;
+ int counter =0 ;
+ t1Func()
+ {
+	while(true)
+	{
+			sem1.wait()
+			printf("t1");	
+			sem2.signal();
+	}
+ }
+ 
+t2Func()
+{
+	while(true)
+	{
+		sem2.wait()
+
+		printf("t2");
+
+		sem1.signal()
+	}
+}
+ 
+Singleton* getInstance()
+{
+	if(mptr == nullptr)
+	{
+		mtx.lock()
+		if(mptr == nullptr)
+		{
+			mptr = new Singleton();
+		}
+		mtx.unlock()
+	}
+	return mptr;
+}
+ 
+Singleton::getInstance()->getData(); 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

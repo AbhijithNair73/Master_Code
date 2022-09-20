@@ -1,0 +1,106 @@
+int num = 5 => 0/P -> 0000 0001 & 0000 0001
+
+int countBinaryOnes(int num)
+{
+	int counter = 0;
+	for(int idx = 0; idx<32; ++idx)
+	{
+		if(num>>idx & 1)
+		{
+			counter++;
+		}
+	}
+	return counter;
+}
+
+string "1234"  -> stoi() X / sscanf / sstream
+
+int convertToInt(const string & input)
+{
+	int number = 0;
+	for(int idx = 0; idx<input.size(); ++idx)
+	{
+		number = number * 10 + (input[idx] - 48);
+	}
+	return number;
+}
+
+single LL -> Last Kth element(e.g 3rd last)
+
+#include<iostream>
+using namespace std;
+
+struct Node
+{
+	int data;
+	struct * next;
+};
+
+Node * root = nullptr;
+
+Node * addElementatBegin(Node * root, int _data)
+{
+	if(root == nullptr)
+	{
+		root = new Node;
+		root->data = _data;
+		root->next = nullptr;
+		return root;
+		
+	}
+	Node * dtemp = new Node;
+	dtemp->data = _data;
+	dtemp->next = root;
+	root = dtemp;
+	return root;
+}
+
+Node * deleteKnode(Node * root, int k)
+{
+	
+	Node * first = root;
+	Node * second  = root;
+	int counter = 0;
+	while(first->next!=nullptr)
+	{
+		if(counter >= k)
+		{
+			second=second->next;
+		}
+		first = first -> next;
+		counter++;	
+	}
+	Node * delTemp = second->next;
+	second->next= second->next->next;
+	delete delTemp;
+
+}
+int main()
+{
+	root = addElementatBegin(root, 10);
+	root = addElementatBegin(root, 20);
+	root = addElementatBegin(root, 30);
+	root = addElementatBegin(root, 40);
+	root = addElementatBegin(root, 50);
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

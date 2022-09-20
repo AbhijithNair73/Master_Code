@@ -1,27 +1,77 @@
-Adapter pattern is 
-Convert the interfac e of a class into another interface clients expect. Adapter lets
-classes work together that couldn' t otherwise because of incompatible interfaces
+A class adapter uses multiple inheritance to adapt one interface to another.
 
-Structure
-A class adapter uses multiple inheritance to adapt one interface to another:
-An object adapter relies on object composition:
-Participants
-• Target (Shape)
-- defines th domain-specific interface that Client uses.
-• Client (DrawingEditor)
-- collaborates with objects conforming to the Target interface.
-• Adaptee (TextView)
-- defines a enxisting interface that needs adapting.
-• Adapter (TextShape)
-- adapts the interface of Adaptee to the Target interface.
+https://www.codeproject.com/Tips/595716/Adapter-Design-Pattern-in-Cplusplus
+
+class_adapter
+
+Adapter pattern relies on object composition.
+Client calls operation on Adapter object.
+Adapter calls Adaptee to carry out the operation.
+In STL, stack adapted from vector:
+When stack executes push(), underlying vector does vector::push_back().
+
+Adapter dP translates different unrelated interface and provide an API to client.
+hetrogenous interfaces and transform into a consistent API, similar to proxy.
+
+Take 2 interfaces and using multiple inheritance create an adapter class.
+
+#include <iostream>
+
+// Desired interface (Target)
+class Rectangle 
+{
+  public:
+    virtual void draw() = 0;
+};
+
+// Legacy component (Adaptee)
+class LegacyRectangle 
+{
+  public:
+    LegacyRectangle(int x1, int y1, int x2, int y2) {
+        x1_ = x1;
+        y1_ = y1;
+        x2_ = x2;
+        y2_ = y2;
+        std::cout << "LegacyRectangle(x1,y1,x2,y2)\n";
+    }
+    void oldDraw() {
+        std::cout << "LegacyRectangle:  oldDraw(). \n";
+    }
+  private:
+    int x1_;
+    int y1_;
+    int x2_;
+    int y2_;
+};
+
+// Adapter wrapper
+class RectangleAdapter: public Rectangle, private LegacyRectangle 
+{
+  public:
+    RectangleAdapter(int x, int y, int w, int h):
+      LegacyRectangle(x, y, x + w, y + h) {
+         std::cout << "RectangleAdapter(x,y,x+w,x+h)\n";
+      }
+    
+    void draw() {
+        std::cout << "RectangleAdapter: draw().\n"; 
+        oldDraw();
+    }
+};
+
+int main()
+{
+  int x = 20, y = 50, w = 300, h = 200;
+  Rectangle *r = new RectangleAdapter(x,y,w,h);
+  r->draw();
+}
+
+The client thinks he is talking to a Rectangle
+The target is the Rectangle class. This is what the client invokes method on.
+  Rectangle *r = new RectangleAdapter(x,y,w,h);
+  r->draw();
+Note that the adapter class uses multiple inheritance.
 
 
-UML:
- Client (DrawingEditor) ---> Target (Shape)---   --- Adaptee (TextView)
- 											 |   |
- 											 |   |
- 									Adapter (TextShape)
- 									           |   
- 											   |  
-Clients call operations on an Adapter instance. In turn, the adapter calls
-Adaptee operations that carry out the specific request (only present in adaptee).
+Difference in proxy is that it is used to deal with related class, that means it is used to work as a substitute or proxy of a realObject. So to be a proxy it should also come from same parent. that means proxy class will also be derived from same interface. and then inside proxy we keep the object/instance of realObject. so as both proxy and realObject are from same parent, both of them has to define the method(PVF method which needs to defined in derived classes). Only differnce that in proxy we can check the availability of realclass and many other opertation/checks and call the acutal realObject method.

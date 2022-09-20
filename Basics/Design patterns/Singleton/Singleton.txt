@@ -1,3 +1,9 @@
+Best reference:
+https://www.bogotobogo.com/DesignPatterns/singleton.php
+
+https://stackoverflow.com/questions/1008019/c-singleton-design-pattern
+
+
 Monostate singleton: member variable static hoga. So even if you create many instances but the data member is static, so it is kind of singleton.
 But it is considered very bad bcoz of inheriting the static data member will not be possible.
 

@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 //  connect
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(5550);
-    serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    serv_addr.sin_addr.s_addr = inet_addr("f127.0.0.1");
 
     b=connect(sfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
     if (b==-1) 
